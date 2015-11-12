@@ -1,0 +1,16 @@
+{
+  "name": "time_reminder",
+  "version": "0.0.1",
+  "description": "Help you to remember to check in card",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pigeon",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt-contrib-jade": "^0.15.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

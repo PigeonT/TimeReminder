@@ -1,0 +1,75 @@
+//"use strict";
+function testqq(today){
+chrome.storage.local.set({'sth': 'Sth'});
+chrome.storage.sync.get('time', function(beforDate) {
+    //        debugger;
+            if (beforDate.time != today) {
+            console.debug(today);
+            console.debug(beforDate);
+    //            chrome.storage.sync.set({'time': today})
+    //        console.log(beforDate);
+     //           chrome.notifications.create(options, callback);
+                //debugger;
+                chrome.storage.sync.remove('Ttime');
+                chrome.storage.sync.get(function(v) {console.debug(v);})
+                chrome.storage.sync.set({
+                    'Ttime': today
+                }, function() {console.debug("success!");});
+                //console.debug(this);
+                //console.debug(window);
+                chrome.storage.sync.get(function(v) {console.debug(v);})
+                //chrome.app.runtime.reload()
+                //
+                console.debug(this);
+                console.debug(arguments.caller)
+                console.debug(window);
+            }
+        });
+
+}
+
+    //callback function 
+    function callback() {
+        // console.debug("Popup!");
+    };
+
+    // options for notifications 
+    var options = {
+        "type": "basic",
+        "title": "Do not forget to check in!",
+        "message": "Do not forget to check in!",
+        "iconUrl": "resources/icon.png"
+    };
+    var now = new Date(Date.now());
+    var today = now.getDate() + "." + now.getMonth() + "4." + now.getYear();
+    var firstTime;
+    chrome.storage.sync.get('firstTime', function(v){
+        firstTime = v.firstTime;    
+    });
+    // today = "121212";
+    /*chrome.storage.sync.get('time', function(beforDate) {
+
+        if (beforDate.time != today) {
+                
+        debugger;    
+   //             chrome.notifications.create(options, callback);
+                chrome.storage.sync.set({
+                    'time': today
+                });
+            }
+    //}); */
+    chrome.storage.onChanged.addListener(function(changes, namespace) {
+
+        chrome.storage.sync.get('time', function(v) {
+       //      console.log(v);
+        }); 
+    });
+
+    //chrome.app.runtime.onLaunched.addListener(function() {
+       
+    chrome.runtime.onStartup.addListener(function() {
+        
+        testqq(today);
+    });  
+                //chrome.storage.sync.get('time', function(v) {console.debug(v);})
+testqq(today);

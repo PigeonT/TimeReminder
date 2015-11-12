@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="timeReminder" ng-cloak>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Time Reminder</title>
+    <meta name="description" content="This App will help you to reminder to check in your card in the morning! Have a nive day!" />
+    <meta name="author" content="pigeonT" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+
+    <div id="id_main_content" class="main_content" ng-controller="mainController">
+        <div> <p>Time Reminder</p> </div>
+        <div>Zeit <span>{{time | date : 'dd/MM @ HH:mm:ss '}}</span></div>
+    </div>
+  
+    <script src="node_modules/angular/angular.js"></script> 
+    <script src="js/background.js"></script>
+</body>
+
+</html>
